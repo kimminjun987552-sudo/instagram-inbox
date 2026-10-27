@@ -1,0 +1,53 @@
+name: Build iPhone beta
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'native-ios/**'
+      - '.github/workflows/iphone-beta.yml'
+permissions:
+  contents: read
+concurrency:
+  group: iphone-beta-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check blocking policies
+        shell: bash
+        run: |
+          set -euo pipefail
+          node native-ios/Tests/policy.test.cjs
+          swiftc native-ios/InstagramInbox/NavigationPolicy.swift native-ios/Tests/PolicyTests.swift -o "$RUNNER_TEMP/policy-tests"
+          "$RUNNER_TEMP/policy-tests" native-ios/Tests/navigation-cases.json
+      - name: Build for real iPhone without developer signing
+        shell: bash
+        run: |
+          set -euo pipefail
+          xcodebuild -version
+          xcodebuild -project native-ios/InstagramInbox.xcodeproj -scheme InstagramInbox -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath "$RUNNER_TEMP/inbox-build" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
+      - name: Package IPA for AltStore signing
+        shell: bash
+        run: |
+          set -euo pipefail
+          app="$RUNNER_TEMP/inbox-build/Build/Products/Release-iphoneos/InstagramInbox.app"
+          test -f "$app/InstagramInbox"
+          test -f "$app/inbox-guard.js"
+          test -f "$app/navigation-policy.js"
+          test -f "$app/media-rules.json"
+          mkdir -p "$RUNNER_TEMP/inbox-package/Payload"
+          ditto "$app" "$RUNNER_TEMP/inbox-package/Payload/InstagramInbox.app"
+          cd "$RUNNER_TEMP/inbox-package"
+          /usr/bin/zip -qry "$RUNNER_TEMP/InstagramInbox-AltStore.ipa" Payload
+      - uses: actions/upload-artifact@v4
+        with:
+          name: InstagramInbox-AltStore
+          path: ${{ runner.temp }}/InstagramInbox-AltStore.ipa
+          if-no-files-found: error
+          retention-days: 7
