@@ -1,0 +1,178 @@
+[
+  {
+    "url": "https://www.instagram.com/direct/inbox/",
+    "allowed": true
+  },
+  {
+    "url": "https://instagram.com/direct/inbox",
+    "allowed": true
+  },
+  {
+    "url": "https://www.instagram.com/direct/t/123456/",
+    "allowed": true
+  },
+  {
+    "url": "https://www.instagram.com/accounts/login/?next=%2Fdirect%2Finbox%2F",
+    "allowed": true
+  },
+  {
+    "url": "https://www.instagram.com/accounts/login/two_factor/",
+    "allowed": true
+  },
+  {
+    "url": "https://www.instagram.com/challenge/abc_123/",
+    "allowed": true
+  },
+  {
+    "url": "https://www.instagram.com:443/direct/inbox/",
+    "allowed": true
+  },
+  {
+    "url": "https://www.instagram.com/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/reels/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/reel/abc/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/explore/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/stories/friend/123/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/p/abc/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/friend/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/direct/new/",
+    "allowed": true
+  },
+  {
+    "url": "https://www.instagram.com/direct/inbox/extra/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/direct/t/123/reels/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/accounts/edit/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/accounts/login/evil/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com.evil.example/direct/inbox/",
+    "allowed": false
+  },
+  {
+    "url": "https://evil.example/direct/inbox/",
+    "allowed": false
+  },
+  {
+    "url": "https://l.instagram.com/?u=https://example.com",
+    "allowed": false
+  },
+  {
+    "url": "http://www.instagram.com/direct/inbox/",
+    "allowed": false
+  },
+  {
+    "url": "instagram://direct/inbox",
+    "allowed": false
+  },
+  {
+    "url": "javascript:alert(1)",
+    "allowed": false
+  },
+  {
+    "url": "data:text/html,hi",
+    "allowed": false
+  },
+  {
+    "url": "file:///direct/inbox/",
+    "allowed": false
+  },
+  {
+    "url": "https://user:password@www.instagram.com/direct/inbox/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com:444/direct/inbox/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/direct/t/%252e%252e/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/direct/inbox/%2e%2e/reels/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/accounts/onetap/",
+    "allowed": true
+  },
+  {
+    "url": "https://www.instagram.com/accounts/onetap/reels/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/auth_platform",
+    "allowed": true
+  },
+  {
+    "url": "https://www.instagram.com/auth_platform/?next=%2Fdirect%2Finbox%2F",
+    "allowed": true
+  },
+  {
+    "url": "https://www.instagram.com/auth_platform/reels/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/auth_platform_fake",
+    "allowed": false
+  },
+  {
+    "url": "about:blank",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/auth_platform/recaptcha/",
+    "allowed": true
+  },
+  {
+    "url": "https://www.instagram.com/auth_platform/codeentry/",
+    "allowed": true
+  },
+  {
+    "url": "https://www.instagram.com/auth_platform/recaptcha/reels/",
+    "allowed": false
+  },
+  {
+    "url": "https://www.google.com/recaptcha/api2/anchor",
+    "allowed": false
+  },
+  {
+    "url": "https://www.instagram.com/direct/new",
+    "allowed": true
+  },
+  {
+    "url": "https://www.instagram.com/direct/new/reels/",
+    "allowed": false
+  }
+]
